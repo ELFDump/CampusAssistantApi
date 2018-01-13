@@ -12,16 +12,13 @@ class Migration_Create_users extends CI_Migration
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
-            'firstname' => array(
+            'UUID' => array(
                 'type' => 'TEXT'
             ),
-            'surname' => array(
+            'nickname' => array(
                 'type' => 'TEXT'
             ),
-            'album' => array(
-                'type' => 'TEXT'
-            ),
-            'phone' => array(
+            'description' => array(
                 'type' => 'TEXT'
             )
         ));
