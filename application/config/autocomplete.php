@@ -45,6 +45,7 @@
  * @property User_m $user_m
  * @property Pos_log_m $pos_log_m
  * @property Room_m $room_m
+ * @property Actual_in_room_m $actual_in_room_m
  *
  */
 
