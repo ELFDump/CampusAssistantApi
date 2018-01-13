@@ -1,0 +1,32 @@
+#RewriteEngine on
+#RewriteBase /gielda/beta/
+#RewriteRule ^$ index.php
+#RewriteRule ^login$ index.php
+#RewriteRule ^login/(.+)$ index.php?a=$1
+#RewriteRule ^app/(.+)/(.+)/(.+)/(.+)$ user_ui/index.php?a=$1&state=$2&id=$3&action=$4
+#RewriteRule ^app/(.+)/(.+)/(.+)$ user_ui/index.php?a=$1&state=$2&operation=$3
+#RewriteRule ^app/(.+)/(.+)$ user_ui/index.php?a=$1&state=$2
+#RewriteRule ^app/(.+)$ user_ui/index.php?a=$1
+#RewriteRule ^app$ user_ui/index.php
+#RewriteRule ^admin/(.+)/(.+)/(.+)/(.+)$ admin_folder/index.php?a=$1&state=$2&operation=$3&type=$4
+#RewriteRule ^admin/(.+)/(.+)/(.+)$ admin_folder/index.php?a=$1&state=$2&operation=$3
+#RewriteRule ^admin/(.+)/(.+)$ admin_folder/index.php?a=$1&state=$2
+#RewriteRule ^admin/(.+)$ admin_folder/index.php?a=$1
+#RewriteRule ^admin$ admin_folder/index.php
+
+
+
+
+#RewriteEngine on
+#RewriteBase /gielda/beta/
+#RewriteRule ^$ index.php
+#RewriteRule ^login/(.+)$ index.php?controller=login&action=$1
+#RewriteRule ^app$ index.php?controller=index&action=index
+#RewriteRule ^app/(.+)/(.+)$ index.php?controller=$1&action=$2
+
+
+#RewriteRule ^app/(.+)/(.+)/(.+)/(.+)$ user_ui/index.php?a=$1&state=$2&id=$3&action=$4
+#RewriteRule ^app/(.+)/(.+)/(.+)$ user_ui/index.php?a=$1&state=$2&operation=$3
+#RewriteRule ^app/(.+)/(.+)$ user_ui/index.php?a=$1&state=$2
+#RewriteRule ^app/(.+)$ user_ui/index.php?a=$1
+#RewriteRule ^app$ user_ui/index.php
