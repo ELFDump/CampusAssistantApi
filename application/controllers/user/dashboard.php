@@ -39,4 +39,17 @@ class Dashboard extends User_Controller
         }
         $this->load->view('api', $this->data);
     }
+    public function addUser()
+    {
+        $data=json_decode($_POST['data']);
+        $this->user_m->save($data);
+    }
+    public function getUser()
+    {
+        $data = json_decode($_POST["data"]);
+        $var_1 = $this->user_m->get_by(array("UUID" => $data["UUID"]), true);
+        $var_1 = json_encode($var_1);
+        $this->data['data'] = $var_1;
+        $this->load->view('api', $this->data);
+    }
 }
