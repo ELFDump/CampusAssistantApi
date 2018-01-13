@@ -47,10 +47,10 @@
 
 $active_group = 'default';
 $active_record = TRUE;
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'campus-assistant-api';
+$db['default']['hostname'] = '51.254.26.102';
+$db['default']['username'] = 'hackathon';
+$db['default']['password'] = 'T73vX5EqehOdIQYJ';
+$db['default']['database'] = 'hackathon';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;

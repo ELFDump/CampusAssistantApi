@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '149.202.48.59';
-$db['default']['username'] = 'campus-app';
-$db['default']['password'] = 'mVxMj6LdBXzxZEsF';
-$db['default']['database'] = 'campus-app';
+$db['default']['hostname'] = '51.254.26.102';
+$db['default']['username'] = 'hackathon';
+$db['default']['password'] = 'T73vX5EqehOdIQYJ';
+$db['default']['database'] = 'hackathon';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;
