@@ -31,6 +31,9 @@ class Pos_log extends User_Controller
         $data = json_decode(file_get_contents("php://input"));
         //var_dump($data);
         $user = $this->user_m->get_by(array("UUID" => $data->uuid), true);
+        if(count($user)==0){
+            $this->user_m->save(array("UUID"=>$data->uuid, "nickname"=>"Test", "description"=>"test"));
+        }
         $room = $this->room_m->get_by(array("UUID" => $data->placeId), true);
         //var_dump($room);
         if (count($room) == 0) {
