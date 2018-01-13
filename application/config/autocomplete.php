@@ -43,25 +43,8 @@
  * Remove these and add you custom ones.
  *
  * @property User_m $user_m
- * @property Login_m $login_m
- * @property Registration_m $registration_m
- * @property Recaptcha $recaptcha
- * @property Company_m $company_m
- * @property Ban_m $ban_m
- * @property Notifications_m $notifications_m
- * @property Boss_m $boss_m
- * @property Apply_m $apply_m
- * @property Salary_m $salary_m
- * @property Account_m $account_m
- * @property Transactions_m $transactions_m
- * @property Loginlog_m $loginlog_m
- * @property Portfolio_m $portfolio_m
- * @property Portfoliopositions_m $portfoliopositions_m
- * @property Shares_m $shares_m
- * @property Orders_m $orders_m
- * @property Transactionsshares_m $transactionsshares_m
- * @property News_m $news_m
- * @property Companyvalue_m $companyvalue_m
+ * @property Pos_log_m $pos_log_m
+ * @property Room_m $room_m
  *
  */
 

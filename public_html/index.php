@@ -23,7 +23,7 @@ date_default_timezone_set("Europa/Warsaw");
  *
  */
 switch (dirname(__FILE__)){
-    case "/Library/WebServer/Documents/grupa/public_html":
+    case "/Library/WebServer/Documents/campus-assistant-api/public_html":
         define('ENVIRONMENT', 'development');
         break;
     default:

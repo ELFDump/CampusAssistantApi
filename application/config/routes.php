@@ -41,7 +41,9 @@
 $route['default_controller'] = "user/dashboard/index";
 $route['404_override'] = '';
 $route[''] = '/';
-
+$route['users/create'] = "users/create";
+$route['location/track/room'] = "pos_log/create";
+$route['users/(:any)'] = "users/get/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
