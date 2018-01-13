@@ -34,7 +34,7 @@ class Pos_log extends User_Controller
         $user = $this->user_m->get_by(array("UUID" => $data->uuid), true);
         $room = $this->room_m->get_by(array("UUID" => $data->placeId), true);
         $id_action = $this->actual_in_room_m->get_by(array("id_user" => $user->id), true);
-        if (((count($id_action) != 0 and $data->action == "ENTER") or (count($id_action) == 0 and $data->action == "LEAVE")) and $room->id_doom==$id_action->id_room) {
+        if (((count($id_action) != 0 and $data->action == "ENTER") or (count($id_action) == 0 and $data->action == "LEAVE")) and $room->id_room == $id_action->id_room) {
             return;
         }
         if (count($user) == 0) {
@@ -75,11 +75,14 @@ class Pos_log extends User_Controller
     public function hour_stat()
     {
         $this->db->group_by("id_user");
-        $this->db->group_by("room");
+        $this->db->where(array("description"=>"ENTER"));
         $data = $this->pos_log_m->get();
+        echo $this->db->last_query();
+        echo "<br />";
+        var_dump($data);
         $room_state = array();
         foreach ($data as $current) {
-            var_dump($current);
+            //var_dump($current);
             if (!isset($room_state[$current->room])) {
                 $room_state[$current->room] = 0;
             }
@@ -90,12 +93,9 @@ class Pos_log extends User_Controller
                 $room_state[$current->room]--;
             }
         }
-
         foreach ($room_state as $key => $current) {
             $this->counted_in_room_m->save(array("id_room" => $key, "state" => $current, "hour" => date("H")));
         }
-
-
     }
 
     public function day_clean_up()
