@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'ludek123';
-$db['default']['database'] = 'campus-assistant-api';
+$db['default']['hostname'] = '149.202.48.59';
+$db['default']['username'] = 'campus-app';
+$db['default']['password'] = 'mVxMj6LdBXzxZEsF';
+$db['default']['database'] = 'campus-app';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;
