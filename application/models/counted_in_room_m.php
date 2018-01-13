@@ -6,7 +6,7 @@
  * Time: 20:02
  */
 
-class counted_in_room_m extends MY_Model
+class Counted_in_room_m extends MY_Model
 {
     protected $_table_name = 'counted_in_room';
     protected $_order_by = 'id_actual';
