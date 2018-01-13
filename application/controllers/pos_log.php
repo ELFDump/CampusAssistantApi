@@ -31,17 +31,31 @@ class Pos_log extends User_Controller
         //var_dump($data);
         $user = $this->user_m->get_by(array("UUID" => $data->uuid), true);
         $room = $this->room_m->get_by(array("UUID" => $data->placeId), true);
-        $this->pos_log_m->save(array("id_user" => $user->id, "time" => $data->time, "description" => $data->action, "room"=>$room->id_room));
+        $this->pos_log_m->save(array("id_user" => $user->id, "time" => $data->time, "description" => $data->action, "room" => $room->id_room));
         //$this->data['data'] = $data;
         //$this->load->view('api', $this->data);
     }
 
-    public function get($uuid)
+    public function get()
     {
-        //$data = json_decode(file_get_contents("php://input"));
-        //var_dump($data);
-        //var_dump($uuid);
-        $data = $this->user_m->get_by(array("UUID" => $uuid), true);
-        echo(json_encode($data));
+        $data = $this->pos_log_m->get();
+        //$this->db->join("rooms", "rooms.id_room = pos_log.room");
+
+        $rooms = $this->room_m->get();
+        $datas = array();
+        foreach ($rooms as $room) {
+            $datas[$room->id_room]['count'] = 0;
+            $datas[$room->id_room]['uuid'] = $room->UUID;
+        }
+        foreach ($data as $r) {
+            if ($r->description == "ENTER") {
+
+                $datas[$r->room]['count']++;
+            } else if ($r->description == "LEAVE") {
+                $datas[$r->room]['count']--;
+            }
+        }
+
+        echo(json_encode($datas));
     }
 }
