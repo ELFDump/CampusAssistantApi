@@ -32,14 +32,15 @@ class Pos_log extends User_Controller
         $data = json_decode(file_get_contents("php://input"));
         //var_dump($data);
         $user = $this->user_m->get_by(array("UUID" => $data->uuid), true);
+        $room = $this->room_m->get_by(array("UUID" => $data->placeId), true);
         $id_action = $this->actual_in_room_m->get_by(array("id_user" => $user->id), true);
-        if ((count($id_action) != 0 and $data->action == "ENTER") or (count($id_action) == 0 and $data->action == "LEAVE")) {
+        if (((count($id_action) != 0 and $data->action == "ENTER") or (count($id_action) == 0 and $data->action == "LEAVE")) and $room->id_doom==$id_action->id_room) {
             return;
         }
         if (count($user) == 0) {
             $this->user_m->save(array("UUID" => $data->uuid, "nickname" => "Test", "description" => "test"));
         }
-        $room = $this->room_m->get_by(array("UUID" => $data->placeId), true);
+
         //var_dump($room);
         if (count($room) == 0) {
             $this->room_m->save(array("UUID" => $data->placeId, "id_category" => 1));
