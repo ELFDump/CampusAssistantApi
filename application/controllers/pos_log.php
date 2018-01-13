@@ -49,7 +49,7 @@ class Pos_log extends User_Controller
             $this->actual_in_room_m->delete($id_action->id_actual);
             $this->pos_log_m->save(array("id_user" => $user->id, "time" => $data->time, "description" => $data->action, "room" => $room->id_room)); // Zapisujemy wyjście do loga
         }
-        if ($data->action == "ENTER" && (count($id_action) == 0 || $id_action->id_room != $room->id_room) { // Wchodzimy do pokoju innego niz obecny (lub nie jesteśmy w pokoju)
+        if ($data->action == "ENTER" && (count($id_action) == 0 || $id_action->id_room != $room->id_room)) { // Wchodzimy do pokoju innego niz obecny (lub nie jesteśmy w pokoju)
             if(count($id_action->id_actual) != 0) { // Ale już gdzieś jesteśmy i nie dostaliśmy odpowiedniego wyjścia, więc dodamy je sobie sami (może aplikacja padła albo coś)
                 $this->pos_log_m->save(array("id_user" => $user->id, "time" => $data->time, "description" => "LEAVE", "room" => $id_action->id_room)); // Dopisujemy 'sztucznie'
                 $this->actual_in_room_m->delete($id_action->id_actual); // I kasujemy obecność
