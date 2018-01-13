@@ -64,5 +64,29 @@ class Pos_log extends User_Controller
         echo(json_encode($datas));
     }
 
+    public function day_stat()
+    {
+        $this->db->group_by("id_user");
+        $this->db->group_by("room");
+        $data = $this->pos_log_m->get();
+        $room_state = array();
+        foreach ($data as $current) {
+            if (!isset($room_state)) {
+                $room_state[$current->room] = 0;
+            }
+            if ($current->description == "ENTER") {
+                $room_state[$current->room]++;
+            }
+            if ($current->description == "LEAVE") {
+                $room_state[$current->room]--;
+            }
+        }
 
+        foreach ($room_state as $key => $current) {
+            $this->counted_in_room_m->save(array("id_room" => $key, "state" => $current));
+        }
+
+        $this->db->empty_table("pos_log");
+
+    }
 }
