@@ -34,7 +34,7 @@ class Pos_log extends User_Controller
         $user = $this->user_m->get_by(array("UUID" => $data->uuid), true);
         $room = $this->room_m->get_by(array("UUID" => $data->placeId), true);
         $id_action = $this->actual_in_room_m->get_by(array("id_user" => $user->id), true);
-        if (((count($id_action) != 0 and $data->action == "ENTER") or (count($id_action) == 0 and $data->action == "LEAVE")) and $room->id_room == $id_action->id_room) {
+        if (((count($id_action) != 0 and $data->action == "ENTER" ) or (count($id_action) == 0 and $data->action == "LEAVE")) or $room->id_room != $id_action->id_room) {
             return;
         }
         if (count($user) == 0) {
