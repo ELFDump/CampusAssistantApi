@@ -43,6 +43,7 @@ $route['404_override'] = '';
 $route[''] = '/';
 $route['users/create'] = "users/create";
 $route['location/track/room'] = "pos_log/create";
+$route['location/track/room/(:any)'] = "pos_log/get/$1";
 $route['users/(:any)'] = "users/get/$1";
 
 /* End of file routes.php */
