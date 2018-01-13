@@ -69,3 +69,4 @@ application/config/development/database.php
 
 # End of https://www.gitignore.io/api/phpstorm
 
+.idea
