@@ -82,9 +82,9 @@ class Pos_log extends User_Controller
         $this->db->group_by("id_user");
         $this->db->where(array("description"=>"ENTER"));
         $data = $this->pos_log_m->get();
-        echo $this->db->last_query();
-        echo "<br />";
-        var_dump($data);
+        //echo $this->db->last_query();
+        //echo "<br />";
+        //var_dump($data);
         $room_state = array();
         foreach ($data as $current) {
             //var_dump($current);
